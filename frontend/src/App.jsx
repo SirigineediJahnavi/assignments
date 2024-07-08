@@ -1,21 +1,17 @@
-// src/App.js
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ClassList from './components/ClassList';
-import BookingForm from './components/BookingForm';
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import ClassList from "./components/ClassList";
+import BookingForm from "./components/BookingForm";
 import UserBookings from "./components/UserBookings";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <h1>Fitness Booking System</h1>
+    <BrowserRouter>
         <Routes>
           <Route path="/" element={<ClassList />} />
-          <Route path="/book" element={<BookingForm />} />
-          <Route path="/my-bookings" element={<UserBookings userId="1" />} />
+          <Route path="/book/:classId" element={<BookingForm />} />
+          <Route path="/my-bookings" element={<UserBookings />} />
         </Routes>
-      </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
